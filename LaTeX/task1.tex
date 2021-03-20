@@ -1,0 +1,132 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{todonotes}
+\usepackage[nottoc,notlof,notlot]{tocbibind} 
+\renewcommand\bibname{References}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\setlength{\headheight}{25pt}
+
+\pagestyle{fancy}{
+  \fancyhf{}
+  \chead{\leftmark}
+  \cfoot{\thepage\ of \pageref{LastPage}}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \chead{\leftmark}
+  \cfoot{\thepage\ of \pageref{LastPage}}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\title{
+    {Bachelor Project}\\
+    \vspace{1cm}
+    {\large Copenhagen Business Academy}\\
+    \vspace{0.25cm}
+    \includegraphics[width=40mm]{coverpage/cph_business.png}\\
+    {\large Vejledernavn (vejleder)}\\
+    \vspace{1cm}
+    \includegraphics[height=45mm]{coverpage/itisnotabugitisafeature.jpg}
+}
+\author{
+    \includegraphics[width=20mm]{coverpage/morten_feldt.png} \\ Name \\ \texttt{email@email.dk} 
+    \and 
+    \includegraphics[width=20mm]{coverpage/morten_feldt.png} \\ Name \\ \texttt{email@email.dk}
+}
+\date{Marts 2021}
+
+ \begin{document}  
+    En bachelor afhandling består af et projekt og en rapport til forløbet. Generelt er gældende at en studerende evner at forstå og løse en problemstilling metodisk og analytisk af en konkret IT-opgave.\cite{bachelor_curriculum}   
+    \\
+    \\
+    Projektet består af en problemstilling, hvor den studerende skal undersøge en problemstilling, komme med forslag til løsninger, og implementere en løs samt begrunde sit valg af den benyttede løsning. Den studerende skal målrette sit projekt bland en af de fag som er undervist i på uddannelsen - Test og kode kvalitet, Udvikling i store systemer eller System Integration.
+    \\
+    \\
+    Rapporten har et maksimalt antal på 40 normalsider + 20 normalsider pr. studerende i gruppen. Der er ikke noget decideret minimum, men man anser gerne at rapporten mindst er 2/3 af det maximale. Rapporten skal blive skrevet på både dansk og engelsk. Indholdet i rapporten skal være arbejdet, som er gjort gennem projektet samt en refleksion og evaluering af arbejdet. Derudover skal rapporten bestå af følgende dele:\cite{bachelor_project} 
+    \begin{enumerate}
+        \item Projekt side - Forside
+        \begin{itemize}
+            \item Projekt titel
+            \item Navn
+            \item CPH Business email
+            \item Uddannelsessted
+            \item Vejleder navn
+        \end{itemize}
+    \end{enumerate}
+    \begin{enumerate}
+        \item Abstract – Fire sætninger
+        \begin{itemize}
+            \item Hvad er problemet?
+            \item Hvorfor er dette problem interessant?
+            \item Hvad er løsningen?
+            \item Hvad er konsekvenserne af løsningen?
+        \end{itemize}
+    \end{enumerate}
+    \begin{enumerate}
+        \item Introduktion – Project beskrivelse
+        \begin{itemize}
+            \item Motivering – Hvorfor er projektet relevant nu til dags.
+            \item Project mål – Hvad er det forventede resultat.
+            \item Project opgaver – Opgaver i projectet f.eks. valg af framework, tools, design, arbejdsmetoder m.v.
+            \item Project indhold – hvad er ikke en opgave i projectet.
+            \item Kort beskrivelse af andre relevante kapitler – et afsnit pr. stk.
+        \end{itemize}
+    \end{enumerate}
+    \begin{enumerate}
+        \item State of art and trends
+        \begin{itemize}
+            \item Bruges til at forklare samlet information samt argumentere hvorfor man har valgt som har gjort, baseret på f.eks. et andet framework eller programmeringssprog.
+            \item Det er vigtigt at referere til sine kilder enten som fodnote eller i Appendix
+        \end{itemize}
+    \end{enumerate}
+    \begin{enumerate}
+        \item Krav og design af løsning – Brug figurer til at understøtte tekster så vidt det er muligt
+        \begin{itemize}
+            \item Analyse, use cases, diagrammer
+            \item Funktionelle krav
+            \item Non-Funktionelle krav
+            \item Arkitektur og komponenter
+        \end{itemize}
+    \end{enumerate}
+    \begin{enumerate}
+        \item Udvikling og implementering af løsning
+        \begin{itemize}
+            \item Implementering
+            \item Test strategier
+            \item Demo
+            \item Deployments
+        \end{itemize}
+    \end{enumerate}
+    \begin{enumerate}
+        \item Konklusion – Kort beskrivelse
+        \begin{itemize}
+            \item Hvad er gjort og hvordan.
+            \item Reflektioner på forløbet og opgaven.
+            \item Anbefalinger på fremtidige udvidelser på projectet.
+        \end{itemize}
+    \end{enumerate}
+    \begin{enumerate}
+        \item Appendix
+        \begin{itemize}
+            \item Referencer af kilder ifg. standard d (see https://ieee-dataport.org/sites/default/ files/analysis/27/IEEE%20Citation%20Guidelines.pdf)
+            \item Installations guide eller brugermanual
+            \item Kildekode af centrale elementer
+        \end{itemize}
+    \end{enumerate}
+
+    \bibliographystyle{unsrt}
+    \bibliography{task1}
+    
+\end{document}

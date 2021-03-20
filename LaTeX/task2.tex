@@ -1,0 +1,424 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{todonotes}
+\usepackage[nottoc,notlof,notlot]{tocbibind} 
+\renewcommand\bibname{References}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\setlength{\headheight}{25pt}
+
+\pagestyle{fancy}{
+  \fancyhf{}
+  \chead{\leftmark}
+  \cfoot{\thepage\ of \pageref{LastPage}}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \chead{\leftmark}
+  \cfoot{\thepage\ of \pageref{LastPage}}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\title{
+    {Bachelor Project}\\
+    \vspace{1cm}
+    {\large Copenhagen Business Academy}\\
+    \vspace{0.25cm}
+    \includegraphics[width=40mm]{coverpage/cph_business.png}\\
+    {\large Vejledernavn (vejleder)}\\
+    \vspace{1cm}
+    \includegraphics[height=45mm]{coverpage/itisnotabugitisafeature.jpg}
+}
+\author{
+    \includegraphics[width=20mm]{coverpage/morten_feldt.png} \\ Name \\ \texttt{email@email.dk} 
+    \and 
+    \includegraphics[width=20mm]{coverpage/morten_feldt.png} \\ Name \\ \texttt{email@email.dk}
+}
+\date{Marts 2021}
+
+ \begin{document}  
+    \maketitle
+    
+    \tableofcontents
+    
+    \part{First Part of this document}
+    
+    \chapter{Packages and styles}
+    \section{Packages}
+    \begin{verbatim}
+        DANISH CHARACTERS = \usepackage[utf8]{inputenc} 
+        DANISH LANGUAGE = \usepackage[danish]{babel}
+        GRAPHICS = \usepackage{graphicx}
+        GRAPHICS PATH = \graphicspath{ {./images/} }
+        HYPERLINKS = \usepackage{hyperref}
+        TABLES = \usepackage{tabularx}
+        COLOR = \usepackage{color}
+        CODE LISTNING = \usepackage{listings}
+        TODO NOTES = \usepackage{todonotes}
+        CHANGE TO REFERENCES FROM BIBLIOGRAPHY = \usepackage[nottoc,notlof,notlot]{tocbibind}
+        CHANGE TO REFERENCES FROM BIBLIOGRAPHY = \renewcommand\bibname{References}
+        HEADER = \usepackage{fancyhdr}
+        NUMBER OF LASTPAGE = \usepackage{lastpage}
+        HEADER HEIGHT = \setlength{\headheight}{25pt}
+    \end{verbatim}
+    \section{Styles}
+    \begin{verbatim}
+    HEADERS ON NORMAL PAGES
+        \pagestyle{fancy}{
+            \fancyhf{}
+            \chead{\leftmark}
+            \cfoot{\thepage\ of \pageref{LastPage}}
+            \renewcommand{\headrulewidth}{0.4pt}
+            \renewcommand{\footrulewidth}{0.4pt}
+        }
+    HEADERS ON CHAPTER AND SPECIAL PAGES
+        \fancypagestyle{plain}{
+            \fancyhf{}
+            \chead{\leftmark}
+            \cfoot{\thepage\ of \pageref{LastPage}}
+            \renewcommand{\headrulewidth}{0.4pt}
+            \renewcommand{\footrulewidth}{0.4pt}
+        } 
+    \end{verbatim}
+    
+    \chapter{Danish characters}
+    æ\\
+    ø\\
+    å\\
+    Æ\\
+    Ø\\
+    Å\\
+    Brød\\
+    Slå\\
+    Æbler\\
+    
+    \chapter{Graphics}
+    \url{https://www.overleaf.com/learn/latex/Captioning_Figures}
+    \section{Image caption}
+    \subsection{Caption over image}
+    \begin{figure}[ht]
+        \centering
+        \caption{Caption over image}
+        \includegraphics[width=0.20\textwidth]{coverpage/itisnotabugitisafeature.jpg}
+        \label{fig:cap_over}
+    \end{figure}
+    \subsection{Caption under image}
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.20\textwidth]{coverpage/itisnotabugitisafeature.jpg}
+        \caption{Caption under image}
+        \label{fig:cap_under}
+    \end{figure}
+    \section{Image Label}
+    \begin{verbatim}
+        \label{fig:centering} --> Det som står efter "fig:" er referencen på billedet - dette skal være unikt.
+        
+        EKSEMPEL:
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[width=0.25\textwidth]{coverpage/itisnotabugitisafeature.jpg}
+            \caption{Centering}
+            \label{fig:centering}
+        \end{figure}
+    \end{verbatim}
+    \section{Centering}
+   \begin{verbatim}
+        \centering --> Skrives øverst når der indsættes billede.
+        
+        EKSEMPEL:
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[width=0.25\textwidth]{coverpage/itisnotabugitisafeature.jpg}
+            \caption{Centering}
+            \label{fig:centering}
+        \end{figure}
+    \end{verbatim}
+    \section{Two images next to each other}
+    \begin{figure}[ht]
+        \centering
+        \begin{minipage}[b]{0.4\textwidth}
+            \includegraphics{coverpage/itisnotabugitisafeature.jpg}
+            \caption{Image 1}
+            \label{fig:image1}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[b]{0.4\textwidth}
+            \includegraphics{coverpage/itisnotabugitisafeature.jpg}
+            \caption{Image 2}
+            \label{fig:image2}
+        \end{minipage}
+    \end{figure}
+    
+    \chapter{References To Images}
+    \url{https://www.overleaf.com/learn/latex/Referencing_Figures}
+    \section{Reference to image}
+    Caption over - Billede nummer \ref{fig:cap_over}.\\
+    Caption under - Billede nummer \ref{fig:cap_under}.\\
+    Image 1 - Billede nummer \ref{fig:image1}.\\
+    Image 2 - Billede nummer \ref{fig:image2}.
+    \section{Reference to page containing the image}
+    Caption over - Side nummer \pageref{fig:cap_over}.\\
+    Caption under - Side nummer \pageref{fig:cap_under}.\\
+    Image 1 - Side nummer \pageref{fig:image1}.\\
+    Image 2 - Side nummer \pageref{fig:image2}.
+
+    \chapter{Section, subsection, subsubsection, paragraph, subparagraph}
+    \url{https://www.overleaf.com/learn/latex/sections_and_chapters}\\
+    \url{https://www.overleaf.com/learn/latex/paragraph_formatting}
+    \section{Numbered section}
+    Table of contents - YES
+    \section*{Non-numbered section}
+    Table of contents - NO
+    \subsection{Subsection}
+    Table of contents - YES
+    \subsubsection{Subsubsection}
+    Table of contents - NO
+    \paragraph{paragraph}
+    paragraph \par
+	\subparagraph{subparagraph}
+	subparagraph
+    
+    \chapter{Lists}
+    \url{https://www.overleaf.com/learn/latex/lists}
+    \section{Bullet points}
+    \begin{itemize}
+        \item Test1
+        \item Test2
+    \end{itemize}
+    \section{Alternative bullet symbols}
+    \begin{itemize}
+        \item[-] Test1
+        \item[-] Test2
+    \end{itemize}
+    \begin{itemize}
+        \item[*] Test1
+        \item[*] Test2
+    \end{itemize}
+    \begin{itemize}
+        \item[.] Test1
+        \item[.] Test2
+    \end{itemize}
+    \section{Nested Lists}
+    \begin{enumerate}
+        \item Top
+        \begin{itemize}
+            \item Nested1
+            \item Nested2
+        \end{itemize}
+        \item Top
+    \end{enumerate}
+    \section{Enumerated lists - Roman numbers and letters}
+    \begin{enumerate}
+    \item Enumerated
+    \item Enumerated
+    \begin{enumerate}
+        \setcounter{enumii}{4}
+        \item Letter
+        \item Letter
+            \begin{enumerate}
+                \item Roman numbers
+                \item Roman numbers
+            \begin{enumerate}
+                \item Letters
+                \item Letters
+            \end{enumerate}
+        \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
+    
+    \chapter{Table with multiple columns}
+    \url{https://www.overleaf.com/learn/latex/tables}
+    \section{Simple table}
+    \begin{center}
+        \begin{tabular}{ |c|c|c| } 
+            \hline
+            Text1 & Text2 & Text3 \\ 
+            Text1 & Text2 & Text3 \\ 
+            Text1 & Text2 & Text3 \\ 
+            \hline
+        \end{tabular}
+    \end{center}
+    \section{Various horizontal alignments in columns (left, right, centered)}
+    \begin{tabularx}{0.8\textwidth} { 
+        | >{\raggedright\arraybackslash}X
+        | >{\centering\arraybackslash}X 
+        | >{\raggedleft\arraybackslash}X | }
+        \hline
+        Text1 & Text2 & Text3 \\
+        Text1 & Text2 & Text3  \\
+        \hline
+    \end{tabularx}\\
+    \begin{tabularx}{0.8\textwidth} { 
+        | >{\raggedright\arraybackslash}X
+        | >{\centering\arraybackslash}X 
+        | >{\raggedleft\arraybackslash}X | }
+        \hline
+        Text1 & Text2 & Text3 \\
+        \hline
+        Text1 & Text2 & Text3  \\
+        \hline
+    \end{tabularx}
+    \section{Cell spanning multiple columns}
+    \begin{tabularx}{0.8\textwidth} { 
+        | >{\raggedright\arraybackslash}X
+        | >{\centering\arraybackslash}X 
+        | >{\raggedleft\arraybackslash}X | }
+        \hline
+        Text1 & Text2 & Text3 \\
+        \hline
+        Text1 & Text2 & Text3  \\
+        \hline
+        \multicolumn{3}{| c |}{Cell spanning text}\\
+        \hline
+    \end{tabularx}
+    \section{Table description and label}
+    Table description\\
+    \begin{table}
+        \centering
+        \begin{tabularx}{0.8\textwidth} { 
+            | >{\raggedright\arraybackslash}X
+            | >{\centering\arraybackslash}X 
+            | >{\raggedleft\arraybackslash}X | }
+            \hline
+            Text1 & Text2 & Text3 \\
+            \hline
+            Text1 & Text2 & Text3  \\
+            \hline
+            \multicolumn{3}{| c |}{Cell spanning text}\\
+            \hline
+        \end{tabularx}\\
+        \caption{Table caption}
+    \label{table:1}
+    \end{table}
+    \section{Reference to table}
+    Table \ref{table:1} is on page \pageref{table:1}
+    
+    \chapter{Code listing}
+    \url{https://www.overleaf.com/learn/latex/code_listing}
+    \section{With emphasized key words in your favorite programming language}
+    \definecolor{javagreen}{rgb}{0.0, 0.5, 0.0}
+    \definecolor{javablue}{rgb}{0.0, 0.0, 0.8}
+    \definecolor{javaorange}{rgb}{1.0, 0.49, 0.0}
+ 
+    \lstset{language=Java,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{javablue},
+    stringstyle=\color{javaorange},
+    commentstyle=\color{javagreen},
+    numbers=left,
+    numberstyle=\tiny\color{black},
+    stepnumber=1,
+    numbersep=10pt,
+    tabsize=4,
+    showspaces=false,
+    showstringspaces=false}
+    \begin{lstlisting}[language=Java]
+        private static class Person
+        {
+            //Comment
+            private final String email;
+            private final String name;
+    
+            /**
+            JavaDoc1
+            JavaDoc2
+            */
+            public Person(String email, String name) {
+                this.email = email;
+                this.name = name;
+            }
+    
+            public String getEmail() {
+                return email;
+            }
+    
+            public String getName() {
+                return name;
+            }
+    
+            @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (o == null || getClass() != o.getClass()) return false;
+    
+                Person person = (Person) o;
+    
+                if(!email.equals(person.email)) return false;
+                return name.equals(person.name);
+            }
+    
+            @Override
+            public int hashCode() {
+                int result = email.hashCode();
+                result = 31 * result + name.hashCode();
+                return result;
+            }
+    
+            @Override
+            public String toString() {
+                return "Person{" +
+                        "email='" + email + '\'' +
+                        ", name='" + name + '\'' +
+                        '}';
+            }
+        }
+    \end{lstlisting}
+    
+    \chapter{Math equations}
+    \url{https://www.overleaf.com/learn/latex/mathematical_expressions}
+    \section{Inline equations (in text)}
+    In physics, the mass-energy equivalence is stated 
+    by the equation $E=mc^2$, discovered in 1905 by Albert Einstein.
+    \section{Display equations (on separate line)}
+    \begin{equation}
+        E=m
+    \end{equation}
+    \section{Fractions, summations, products, roots, powers}
+    \subsection{Fractions}
+    \[\frac{1}{2}\]
+    \subsection{Summations}
+    $\sum$
+    \subsection{Products}
+    $\prod$
+    \subsection{Roots}
+    This is a simple math expression \(\sqrt{x^2+1}\) inside text. 
+    And this is also the same: 
+    \begin{math}
+        \sqrt{x^2+1}
+    \end{math}
+    but by using another command.\\
+    This is a simple math expression without numbering
+    \[\sqrt{x^2+1}\] 
+    separated from text.
+    \subsection{Powers}
+    In physics, the mass-energy equivalence is stated 
+    by the equation $E=mc^2$, discovered in 1905 by Albert Einstein.\\
+    $E=mc^2$
+    
+    \chapter{Bibliography with book, article and internet link}
+    \url{https://www.overleaf.com/learn/latex/bibliography_management_with_bibtex}
+    \section{Book}
+    Text about book.\cite{book}
+    \section{Article}
+    Text about article.\cite{article}
+    \section{Link}
+    Text about link.\cite{link}
+    
+    \chapter{Todo notes of own choice}
+    Text test test test test test. \todo{TODO new text}
+
+    \bibliographystyle{unsrt}
+    \bibliography{task2}
+    
+\end{document}
